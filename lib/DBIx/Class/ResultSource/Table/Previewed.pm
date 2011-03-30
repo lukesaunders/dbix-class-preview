@@ -9,7 +9,7 @@ use base qw/DBIx::Class::ResultSource::Table/;
 sub schema {
   my $self = shift;
 
-  if ( @_ && !$self->schema ) {    # only fire if we're getting schema set for first time
+  if ( @_ && !$self->{schema} ) {    # only fire if we're getting schema set for first time
     my ($schema) = @_;
 
     my $new_source = DBIx::Class::ResultSource::Table::Preview->new({

@@ -16,7 +16,7 @@ my $orig_row = $unpreviewed_schema->resultset('Artist')->find($row->id);
 
 $row->delete;
 
-$schema->resultset('Artist')->search({});
+my $result = $schema->resultset('Artist')->search({});
 ok(!$schema->resultset('Artist')->find($row->id), 'artist no longer visible in previewed table');
 ok($unpreviewed_schema->resultset('Artist')->find($row->id), 'artist still visible in unpreviewed table');
 
